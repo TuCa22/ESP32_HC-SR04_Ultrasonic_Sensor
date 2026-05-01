@@ -2,6 +2,8 @@
 
 #define TRIG1 32
 #define ECHO1 33
+#define TRIG2 18
+#define ECHO2 19
 
 long duration1;
 float distance1;
@@ -11,17 +13,32 @@ void setup()
   Serial.begin(115200);
   pinMode(TRIG1, OUTPUT);
   pinMode(ECHO1, INPUT);
+  pinMode(TRIG2, OUTPUT);
+  pinMode(ECHO2, INPUT);
 }
 
 void loop()
 {
-  digitalWrite(TRIG1, LOW);
-  delayMicroseconds(2);
-  digitalWrite(TRIG1, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG1, LOW);
+  // digitalWrite(TRIG1, LOW);
+  // delayMicroseconds(2);
+  // digitalWrite(TRIG1, HIGH);
+  // delayMicroseconds(10);
+  // digitalWrite(TRIG1, LOW);
 
-  duration1 = pulseIn(ECHO1, HIGH);
+  // duration1 = pulseIn(ECHO1, HIGH);
+  // distance1 = duration1 * 0.034 / 2;
+  // Serial.print(">Distance: ");
+  // Serial.print(distance1);
+  // Serial.println(" cm");
+  // delay(500);
+
+  digitalWrite(TRIG2, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG2, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG2, LOW);
+
+  duration1 = pulseIn(ECHO2, HIGH);
   distance1 = duration1 * 0.034 / 2;
   Serial.print(">Distance: ");
   Serial.print(distance1);
