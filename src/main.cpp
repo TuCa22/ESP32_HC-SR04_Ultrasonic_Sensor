@@ -21,18 +21,16 @@ void setup()
 
 void loop()
 {
-  // digitalWrite(TRIG1, LOW);
-  // delayMicroseconds(2);
-  // digitalWrite(TRIG1, HIGH);
-  // delayMicroseconds(10);
-  // digitalWrite(TRIG1, LOW);
+  digitalWrite(TRIG1, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG1, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG1, LOW);
 
-  // duration1 = pulseIn(ECHO1, HIGH);
-  // distance1 = duration1 * 0.034 / 2;
-  // Serial.print(">Distance: ");
-  // Serial.print(distance1);
-  // Serial.println(" cm");
-  // delay(500);
+  duration1 = pulseIn(ECHO1, HIGH, 30000);
+  distance1 = duration1 * 0.034 / 2;
+
+  delay(30);
 
   digitalWrite(TRIG2, LOW);
   delayMicroseconds(2);
@@ -40,21 +38,30 @@ void loop()
   delayMicroseconds(10);
   digitalWrite(TRIG2, LOW);
 
-  duration2 = pulseIn(ECHO2, HIGH);
-  distance2 = duration2 * 0.034 / 2;
-  // Serial.print(">Distance: ");
-  // Serial.print(distance2);
-  // Serial.println(" cm");
-  // delay(500);
+  duration2 = pulseIn(ECHO2, HIGH, 30000);
+  distance2 = duration2 * 0.0343 / 2;
 
-  if (distance2 <= 20)
+  Serial.print("Left: ");
+  Serial.print(distance1);
+  if (distance1 > 0 && distance1 <= 20)
   {
-    Serial.println("Right: Object detected");
-    delay(200);
+    Serial.print(" [ OBJECT ] ");
   }
   else
   {
-    Serial.println("Right: No object detected");
-    delay(200);
+    Serial.print(" [ CLEAR ] ");
   }
+
+  Serial.print("  |  ");
+  Serial.print("Right: ");
+  Serial.print(distance2);
+  if (distance2 > 0 && distance2 <= 20)
+  {
+    Serial.println(" [ OBJECT ] ");
+  }
+  else
+  {
+    Serial.println(" [ CLEAR ] ");
+  }
+  delay(200);
 }
