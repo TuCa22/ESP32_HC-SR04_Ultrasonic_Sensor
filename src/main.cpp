@@ -7,6 +7,8 @@
 
 long duration1;
 float distance1;
+long duration2;
+float distance2;
 
 void setup()
 {
@@ -38,10 +40,10 @@ void loop()
   delayMicroseconds(10);
   digitalWrite(TRIG2, LOW);
 
-  duration1 = pulseIn(ECHO2, HIGH);
-  distance1 = duration1 * 0.034 / 2;
+  duration2 = pulseIn(ECHO2, HIGH);
+  distance2 = duration2 * 0.034 / 2;
   Serial.print(">Distance: ");
-  Serial.print(distance1);
+  Serial.print(distance2);
   Serial.println(" cm");
   delay(500);
 }
