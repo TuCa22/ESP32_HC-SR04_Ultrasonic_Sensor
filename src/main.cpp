@@ -42,8 +42,19 @@ void loop()
 
   duration2 = pulseIn(ECHO2, HIGH);
   distance2 = duration2 * 0.034 / 2;
-  Serial.print(">Distance: ");
-  Serial.print(distance2);
-  Serial.println(" cm");
-  delay(500);
+  // Serial.print(">Distance: ");
+  // Serial.print(distance2);
+  // Serial.println(" cm");
+  // delay(500);
+
+  if (distance2 <= 20)
+  {
+    Serial.println("Right: Object detected");
+    delay(200);
+  }
+  else
+  {
+    Serial.println("Right: No object detected");
+    delay(200);
+  }
 }
