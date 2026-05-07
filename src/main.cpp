@@ -41,27 +41,23 @@ void loop()
   duration2 = pulseIn(ECHO2, HIGH, 30000);
   distance2 = duration2 * 0.0343 / 2;
 
-  Serial.print("Left: ");
-  Serial.print(distance1);
-  if (distance1 > 0 && distance1 <= 20)
-  {
-    Serial.print(" [ OBJECT ] ");
-  }
-  else
-  {
-    Serial.print(" [ CLEAR ] ");
-  }
-
-  Serial.print("  |  ");
-  Serial.print("Right: ");
-  Serial.print(distance2);
-  if (distance2 > 0 && distance2 <= 20)
-  {
-    Serial.println(" [ OBJECT ] ");
-  }
-  else
-  {
-    Serial.println(" [ CLEAR ] ");
-  }
+  Serial.print(">Left: "); Serial.println(distance1);
+  // if (distance1 > 0 && distance1 <= 20)
+  // {
+  //   Serial.print(" [ OBJECT ] ");
+  // }
+  // else
+  // {
+  //   Serial.print(" [ CLEAR ] ");
+  // }
+  Serial.print(">Right: "); Serial.println(distance2);
+  // if (distance2 > 0 && distance2 <= 20)
+  // {
+  //   Serial.println(" [ OBJECT ] ");
+  // }
+  // else
+  // {
+  //   Serial.println(" [ CLEAR ] ");
+  // }
   delay(200);
 }
